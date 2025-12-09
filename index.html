@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>Run my Python files</title>
+
+      <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+      <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+
+</head>
+<body>
+
+    <p id='label'> Hello</p>
+
+
+    <py-script>
+
+        import requests
+        import json
+        import sys
+        response = requests.get(
+        'https://qui-demo.populiweb.com/api2/people/25',
+        headers={
+        'Authorization': 'Bearer sk_2u6kmQB3tBeP2wQyuOgsbPgw5axXeN5b1roq3mq8DKmsVuxc7F8GjUBTEoLyehIz4XdFgPhKafMUQJZiKjgFPS'
+        }
+        )
+
+        convert = response.json()
+        print(convert['display_name'])
+
+        newsom = input()
+        trusome = json.dumps(newsom)
+        response = requests.put(
+        'https://qui-demo.populiweb.com/api2/people/25', 
+        headers={
+        'Authorization': 'Bearer sk_2u6kmQB3tBeP2wQyuOgsbPgw5axXeN5b1roq3mq8DKmsVuxc7F8GjUBTEoLyehIz4XdFgPhKafMUQJZiKjgFPS'
+        
+        },
+        json={
+            'bio' : trusome
+            
+
+        }
+        
+        
+        )
+
+        pyscript.write('label', newsom)
+            </py-script>
+
+
+
+</body>
