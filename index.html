@@ -6,23 +6,29 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
     <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
-    <script type="module" src="https://pyscript.net/releases/2025.8.1/core.js"></script>
+    <script defer src="https://pyscript.net/releases/2022.12.1/pyscript.js"></script>
 
 </head>
 <body>
+    <main>
 
-    <p id='label'> Hello</p>
+        <p id='label'> Hello</p>
 
-    <section class="pyscript">
-            Hello world! <br />
-            This is the current date and time, as computed by Python:
-            <script type="py">
-                from pyscript import display
-                from datetime import datetime
-                now = datetime.now()
-                display(now.strftime("%m/%d/%Y, %H:%M:%S"))
-            </script>
-        </section>
+        <button id="fetch-data" py-click="fetch_data()">Fetch API Data</button>
+
+        <div>
+            <h2>API call results</h2>
+            <div id="data"></div>
+        </div>
+        <py-config src="./pyscript.toml"></py-config>
+        <py-script src="./main.py"></py-script>
+
+
+    </main>
+    
+
+
+
 
 
 
