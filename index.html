@@ -17,10 +17,38 @@
             Hello world! <br />
             This is the current date and time, as computed by Python:
             <script type="py">
-                from pyscript import display
-                from datetime import datetime
-                now = datetime.now()
-                display(now.strftime("%m/%d/%Y, %H:%M:%S"))
+                import requests
+                import json
+                import sys
+                response = requests.get(
+                    'https://qui-demo.populiweb.com/api2/people/25',
+                    headers={
+                    'Authorization': 'Bearer sk_2u6kmQB3tBeP2wQyuOgsbPgw5axXeN5b1roq3mq8DKmsVuxc7F8GjUBTEoLyehIz4XdFgPhKafMUQJZiKjgFPS'
+                    }
+                )
+
+                convert = response.json()
+                print(convert['display_name'])
+
+                newsom = input()
+                trusome = json.dumps(newsom)
+                response = requests.put(
+                    'https://qui-demo.populiweb.com/api2/people/25', 
+                    headers={
+                    'Authorization': 'Bearer sk_2u6kmQB3tBeP2wQyuOgsbPgw5axXeN5b1roq3mq8DKmsVuxc7F8GjUBTEoLyehIz4XdFgPhKafMUQJZiKjgFPS'
+                
+                    },
+                    json={
+                        'bio' : trusome
+                    
+
+                    }
+                
+                
+                )
+
+
+                display(newsom)
             </script>
         </section>
 
