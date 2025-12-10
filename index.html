@@ -1,31 +1,23 @@
+<!doctype html>
 <html>
 <head>
-<title>Run my Python files</title>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
-    <script type="module" src="https://pyscript.net/releases/2025.8.1/core.js"></script>
-
+  <title>Some title</title>
 </head>
 <body>
-
-    <p id='label'> Hello</p>
-
-    <section class="pyscript">
-            Hello world! <br />
-            This is the current date and time, as computed by Python:
-            <script type="py">
-                from pyscript import display
-                from datetime import datetime
-                now = datetime.now()
-                display(now.strftime("%m/%d/%Y, %H:%M:%S"))
-            </script>
-        </section>
-
-
-
-
-
+  <h2>Form</h2>
+  <form action="/text" method="post">
+    Input text:<br>
+    <input type="text" name="text_input" value="">
+    <br>
+    <input type="submit" value="Submit" >
+  </form>
+  <div id='foo'>
+    <br>
+    {% for comment in comments %}
+    <div class="row">
+      {{ comment }} 
+    </div>
+    {% endfor %}
+  </div>
 </body>
+</html>
